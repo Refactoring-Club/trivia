@@ -1,15 +1,11 @@
-require('./game.js');
+require("./game.js");
 
-describe("The test environment", function() {
-  it("should pass", function() {
+describe("The test environment", function () {
+  it("should pass", function () {
     expect(true).toBe(true);
   });
 
-  it("should access game", function() {
+  it("should access game", function () {
     expect(Game).toBeDefined();
   });
-});
-
-describe("Your specs...", function() {
-  // it ...
 });
