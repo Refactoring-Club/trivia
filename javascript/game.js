@@ -31,6 +31,11 @@ exports.Game = function () {
     return "Rock";
   };
 
+  var advanceCurrentPlayer = () => {
+    currentPlayer += 1;
+    if (currentPlayer == players.length) currentPlayer = 0;
+  };
+
   this.createRockQuestion = function (index) {
     return "Rock Question " + index;
   };
@@ -126,13 +131,11 @@ exports.Game = function () {
         );
 
         var winner = didPlayerWin();
-        currentPlayer += 1;
-        if (currentPlayer == players.length) currentPlayer = 0;
+        advanceCurrentPlayer();
 
         return winner;
       } else {
-        currentPlayer += 1;
-        if (currentPlayer == players.length) currentPlayer = 0;
+        advanceCurrentPlayer();
         return true;
       }
     } else {
@@ -148,8 +151,7 @@ exports.Game = function () {
 
       var winner = didPlayerWin();
 
-      currentPlayer += 1;
-      if (currentPlayer == players.length) currentPlayer = 0;
+      advanceCurrentPlayer();
 
       return winner;
     }
@@ -160,8 +162,7 @@ exports.Game = function () {
     console.log(players[currentPlayer] + " was sent to the penalty box");
     inPenaltyBox[currentPlayer] = true;
 
-    currentPlayer += 1;
-    if (currentPlayer == players.length) currentPlayer = 0;
+    advanceCurrentPlayer();
     return true;
   };
 };
