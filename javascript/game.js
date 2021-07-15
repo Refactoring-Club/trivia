@@ -70,6 +70,9 @@ exports.Game = function () {
   };
 
   this.roll = function (roll) {
+    if (!this.isPlayable(this.howManyPlayers())) {
+      throw "You did a bad.";
+    }
     console.log(players[currentPlayer] + " is the current player");
     console.log("They have rolled a " + roll);
 
