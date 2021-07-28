@@ -18,6 +18,8 @@ exports.Game = function () {
     return !(purses[currentPlayer] == 6);
   };
 
+  this.started = false;
+
   var currentCategory = function () {
     if (places[currentPlayer] == 0) return "Pop";
     if (places[currentPlayer] == 4) return "Pop";
@@ -78,6 +80,7 @@ exports.Game = function () {
     if (!this.isPlayable(this.howManyPlayers())) {
       throw "You did a bad.";
     }
+    this.started = true
     console.log(players[currentPlayer] + " is the current player");
     console.log("They have rolled a " + roll);
 

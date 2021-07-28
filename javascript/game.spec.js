@@ -32,3 +32,26 @@ describe("When there enough players", function () {
     expect(rollTheDie).not.toThrow();
   });
 });
+
+describe("when the game has not started", () => {
+  it("the 'started' flag is false", () => {
+    var game = new Game();
+
+    game.add("Chad");
+
+    expect(game.started).toBe(false);
+  })
+})
+
+describe("after the first roll", () => {
+  it("the 'started' flag is true", () => {
+    var game = new Game();
+
+    game.add("Cynthia");
+    game.add("Wilbur");
+
+    game.roll(1)
+
+    expect(game.started).toBe(true);
+  })
+})
