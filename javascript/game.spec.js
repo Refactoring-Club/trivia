@@ -1,15 +1,5 @@
 require("./game.js");
 
-describe("The test environment", function () {
-  it("should pass", function () {
-    expect(true).toBe(true);
-  });
-
-  it("should access game", function () {
-    expect(Game).toBeDefined();
-  });
-});
-
 describe("When there are no players", function () {
   it("tells you that you did a bad", () => {
     var game = new Game();
