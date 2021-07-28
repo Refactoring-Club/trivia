@@ -1,12 +1,14 @@
-Test with node.js
+Test with jest
 =====================
 
-Install the jasmine-node plugin from https://github.com/mhevery/jasmine-node
+Install `jest`:
 
-	npm install jasmine-node -g
+```
+npm install
+```
 
-And execute:
+Run the tests:
 
-	jasmine-node .
-
-Any test source matching the pattern *.spec.js will be executed.
+```
+npm run test
+```
