@@ -40,8 +40,8 @@ describe("when the game has not started", () => {
     game.add("Chad");
 
     expect(game.started).toBe(false);
-  })
-})
+  });
+});
 
 describe("after the first roll", () => {
   it("the 'started' flag is true", () => {
@@ -50,8 +50,22 @@ describe("after the first roll", () => {
     game.add("Cynthia");
     game.add("Wilbur");
 
-    game.roll(1)
+    game.roll(1);
 
     expect(game.started).toBe(true);
-  })
-})
+  });
+
+  it("logs the current player's new position", () => {
+    jest.spyOn(console, "log");
+    var game = new Game();
+
+    game.add("Cynthia");
+    game.add("Wilbur");
+
+    game.roll(3);
+
+    expect(console.log).toHaveBeenCalledWith("Cynthia's new location is 3");
+
+    jest.restoreAllMocks();
+  });
+});
