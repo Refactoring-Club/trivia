@@ -69,3 +69,21 @@ describe("after the first roll", () => {
     jest.restoreAllMocks();
   });
 });
+
+describe("wasCorrectlyAnswered", () => {
+  it("logs the current player's number of gold coins", () => {
+    jest.spyOn(console, "log");
+    var game = new Game();
+
+    game.add("Cynthia");
+    game.add("Wilbur");
+
+    game.roll(123);
+
+    game.wasCorrectlyAnswered();
+
+    expect(console.log).toHaveBeenCalledWith("Cynthia now has 1 Gold Coins.");
+
+    jest.restoreAllMocks();
+  });
+})

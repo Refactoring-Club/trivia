@@ -55,7 +55,6 @@ exports.Game = function () {
 
   this.add = function (playerName) {
     players.push(playerName);
-    purses[this.howManyPlayers() - 1] = 0;
     inPenaltyBox[this.howManyPlayers() - 1] = false;
 
     console.log(playerName + " was added");
@@ -66,6 +65,10 @@ exports.Game = function () {
 
   const initializePlaces = () => {
     places = Array(this.howManyPlayers()).fill(0)
+  }
+
+  const initializePurses = () => {
+    purses = Array(this.howManyPlayers()).fill(0)
   }
 
   this.howManyPlayers = function () {
@@ -83,7 +86,11 @@ exports.Game = function () {
     if (!this.isPlayable(this.howManyPlayers())) {
       throw "You did a bad.";
     }
-    if (!this.started) initializePlaces();
+    if (!this.started) {
+      initializePlaces();
+      initializePurses();
+    }
+
     this.started = true;
     console.log(players[currentPlayer] + " is the current player");
     console.log("They have rolled a " + roll);
